@@ -60,7 +60,7 @@ shapes = {
     "The Subway": {
         "image_path": "static/subway.png",
         "description": "The Subway is a long, tubular structure but due to structural requirements, it couldn't be considered a type of macaroni",
-        "is_macaroni": False,
+        "is_macaroni": False
     },
     "Snake": {
         "image_path": "static/snake.png",
@@ -161,7 +161,7 @@ def main():
 def check_answer(user_answer):
     shape = st.session_state.current_shape
     correct = shapes[shape]["is_macaroni"]
-    technically = shapes[shape]["technically"]
+    technically = shapes[shape].get("technically")  # Using .get() to safely handle missing key
 
     st.session_state.total += 1
 
